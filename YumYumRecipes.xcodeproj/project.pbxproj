@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED8C22871A26DE0900A906E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22861A26DE0900A906E9 /* main.m */; };
+		ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22891A26DE0900A906E9 /* AppDelegate.m */; };
+		ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED8C228B1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld */; };
+		ED8C22901A26DE0900A906E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C228F1A26DE0900A906E9 /* ViewController.m */; };
+		ED8C22931A26DE0900A906E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8C22911A26DE0900A906E9 /* Main.storyboard */; };
+		ED8C22951A26DE0900A906E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8C22941A26DE0900A906E9 /* Images.xcassets */; };
+		ED8C22981A26DE0900A906E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8C22961A26DE0900A906E9 /* LaunchScreen.xib */; };
+		ED8C22A41A26DE0900A906E9 /* YumYumRecipesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED8C229E1A26DE0900A906E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED8C22791A26DE0800A906E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED8C22801A26DE0900A906E9;
+			remoteInfo = YumYumRecipes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ED8C22811A26DE0900A906E9 /* YumYumRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YumYumRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C22851A26DE0900A906E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED8C22861A26DE0900A906E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED8C22881A26DE0900A906E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ED8C22891A26DE0900A906E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED8C228C1A26DE0900A906E9 /* YumYumRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YumYumRecipes.xcdatamodel; sourceTree = "<group>"; };
+		ED8C228E1A26DE0900A906E9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ED8C228F1A26DE0900A906E9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ED8C22921A26DE0900A906E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED8C22941A26DE0900A906E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ED8C22971A26DE0900A906E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ED8C229D1A26DE0900A906E9 /* YumYumRecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YumYumRecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C22A21A26DE0900A906E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YumYumRecipesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED8C227E1A26DE0900A906E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C229A1A26DE0900A906E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED8C22781A26DE0800A906E9 = {
+			isa = PBXGroup;
+			children = (
+				ED8C22831A26DE0900A906E9 /* YumYumRecipes */,
+				ED8C22A01A26DE0900A906E9 /* YumYumRecipesTests */,
+				ED8C22821A26DE0900A906E9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED8C22821A26DE0900A906E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C22811A26DE0900A906E9 /* YumYumRecipes.app */,
+				ED8C229D1A26DE0900A906E9 /* YumYumRecipesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED8C22831A26DE0900A906E9 /* YumYumRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C22881A26DE0900A906E9 /* AppDelegate.h */,
+				ED8C22891A26DE0900A906E9 /* AppDelegate.m */,
+				ED8C228E1A26DE0900A906E9 /* ViewController.h */,
+				ED8C228F1A26DE0900A906E9 /* ViewController.m */,
+				ED8C22911A26DE0900A906E9 /* Main.storyboard */,
+				ED8C22941A26DE0900A906E9 /* Images.xcassets */,
+				ED8C22961A26DE0900A906E9 /* LaunchScreen.xib */,
+				ED8C228B1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld */,
+				ED8C22841A26DE0900A906E9 /* Supporting Files */,
+			);
+			path = YumYumRecipes;
+			sourceTree = "<group>";
+		};
+		ED8C22841A26DE0900A906E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C22851A26DE0900A906E9 /* Info.plist */,
+				ED8C22861A26DE0900A906E9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED8C22A01A26DE0900A906E9 /* YumYumRecipesTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */,
+				ED8C22A11A26DE0900A906E9 /* Supporting Files */,
+			);
+			path = YumYumRecipesTests;
+			sourceTree = "<group>";
+		};
+		ED8C22A11A26DE0900A906E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED8C22A21A26DE0900A906E9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED8C22801A26DE0900A906E9 /* YumYumRecipes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C22A71A26DE0900A906E9 /* Build configuration list for PBXNativeTarget "YumYumRecipes" */;
+			buildPhases = (
+				ED8C227D1A26DE0900A906E9 /* Sources */,
+				ED8C227E1A26DE0900A906E9 /* Frameworks */,
+				ED8C227F1A26DE0900A906E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YumYumRecipes;
+			productName = YumYumRecipes;
+			productReference = ED8C22811A26DE0900A906E9 /* YumYumRecipes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED8C229C1A26DE0900A906E9 /* YumYumRecipesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED8C22AA1A26DE0900A906E9 /* Build configuration list for PBXNativeTarget "YumYumRecipesTests" */;
+			buildPhases = (
+				ED8C22991A26DE0900A906E9 /* Sources */,
+				ED8C229A1A26DE0900A906E9 /* Frameworks */,
+				ED8C229B1A26DE0900A906E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED8C229F1A26DE0900A906E9 /* PBXTargetDependency */,
+			);
+			name = YumYumRecipesTests;
+			productName = YumYumRecipesTests;
+			productReference = ED8C229D1A26DE0900A906E9 /* YumYumRecipesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED8C22791A26DE0800A906E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Giang Pham";
+				TargetAttributes = {
+					ED8C22801A26DE0900A906E9 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					ED8C229C1A26DE0900A906E9 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = ED8C22801A26DE0900A906E9;
+					};
+				};
+			};
+			buildConfigurationList = ED8C227C1A26DE0800A906E9 /* Build configuration list for PBXProject "YumYumRecipes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED8C22781A26DE0800A906E9;
+			productRefGroup = ED8C22821A26DE0900A906E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED8C22801A26DE0900A906E9 /* YumYumRecipes */,
+				ED8C229C1A26DE0900A906E9 /* YumYumRecipesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED8C227F1A26DE0900A906E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C22931A26DE0900A906E9 /* Main.storyboard in Resources */,
+				ED8C22981A26DE0900A906E9 /* LaunchScreen.xib in Resources */,
+				ED8C22951A26DE0900A906E9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C229B1A26DE0900A906E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED8C227D1A26DE0900A906E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */,
+				ED8C22871A26DE0900A906E9 /* main.m in Sources */,
+				ED8C22901A26DE0900A906E9 /* ViewController.m in Sources */,
+				ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8C22991A26DE0900A906E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C22A41A26DE0900A906E9 /* YumYumRecipesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED8C229F1A26DE0900A906E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED8C22801A26DE0900A906E9 /* YumYumRecipes */;
+			targetProxy = ED8C229E1A26DE0900A906E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED8C22911A26DE0900A906E9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED8C22921A26DE0900A906E9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ED8C22961A26DE0900A906E9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED8C22971A26DE0900A906E9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED8C22A51A26DE0900A906E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ED8C22A61A26DE0900A906E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED8C22A81A26DE0900A906E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YumYumRecipes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ED8C22A91A26DE0900A906E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YumYumRecipes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ED8C22AB1A26DE0900A906E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YumYumRecipesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YumYumRecipes.app/YumYumRecipes";
+			};
+			name = Debug;
+		};
+		ED8C22AC1A26DE0900A906E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YumYumRecipesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YumYumRecipes.app/YumYumRecipes";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED8C227C1A26DE0800A906E9 /* Build configuration list for PBXProject "YumYumRecipes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C22A51A26DE0900A906E9 /* Debug */,
+				ED8C22A61A26DE0900A906E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED8C22A71A26DE0900A906E9 /* Build configuration list for PBXNativeTarget "YumYumRecipes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C22A81A26DE0900A906E9 /* Debug */,
+				ED8C22A91A26DE0900A906E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ED8C22AA1A26DE0900A906E9 /* Build configuration list for PBXNativeTarget "YumYumRecipesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8C22AB1A26DE0900A906E9 /* Debug */,
+				ED8C22AC1A26DE0900A906E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED8C228B1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED8C228C1A26DE0900A906E9 /* YumYumRecipes.xcdatamodel */,
+			);
+			currentVersion = ED8C228C1A26DE0900A906E9 /* YumYumRecipes.xcdatamodel */;
+			path = YumYumRecipes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ED8C22791A26DE0800A906E9 /* Project object */;
+}
