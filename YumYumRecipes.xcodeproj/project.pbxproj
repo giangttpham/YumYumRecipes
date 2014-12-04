@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED8395E11A301660004EDF2A /* RecipeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8395E01A301660004EDF2A /* RecipeTableCell.xib */; };
+		ED8395E41A301773004EDF2A /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8395E31A301773004EDF2A /* RecipeTableCell.m */; };
+		ED8395EA1A301E89004EDF2A /* scrambled-eggs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8395E91A301E89004EDF2A /* scrambled-eggs.jpg */; };
 		ED8C22871A26DE0900A906E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22861A26DE0900A906E9 /* main.m */; };
 		ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22891A26DE0900A906E9 /* AppDelegate.m */; };
 		ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED8C228B1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld */; };
-		ED8C22901A26DE0900A906E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C228F1A26DE0900A906E9 /* ViewController.m */; };
 		ED8C22931A26DE0900A906E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8C22911A26DE0900A906E9 /* Main.storyboard */; };
 		ED8C22951A26DE0900A906E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8C22941A26DE0900A906E9 /* Images.xcassets */; };
 		ED8C22981A26DE0900A906E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8C22961A26DE0900A906E9 /* LaunchScreen.xib */; };
 		ED8C22A41A26DE0900A906E9 /* YumYumRecipesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */; };
+		ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */; };
+		ED8C22B21A2EBF6700A906E9 /* NewRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */; };
+		EDF5D7BE1A2ECAAB00D63F5C /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF5D7BD1A2ECAAB00D63F5C /* RecipeDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +33,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED8395E01A301660004EDF2A /* RecipeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTableCell.xib; sourceTree = "<group>"; };
+		ED8395E21A301773004EDF2A /* RecipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableCell.h; sourceTree = "<group>"; };
+		ED8395E31A301773004EDF2A /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
+		ED8395E91A301E89004EDF2A /* scrambled-eggs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "scrambled-eggs.jpg"; path = "../../../Downloads/scrambled-eggs.jpg"; sourceTree = "<group>"; };
 		ED8C22811A26DE0900A906E9 /* YumYumRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YumYumRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C22851A26DE0900A906E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED8C22861A26DE0900A906E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED8C22881A26DE0900A906E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED8C22891A26DE0900A906E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ED8C228C1A26DE0900A906E9 /* YumYumRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YumYumRecipes.xcdatamodel; sourceTree = "<group>"; };
-		ED8C228E1A26DE0900A906E9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ED8C228F1A26DE0900A906E9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		ED8C22921A26DE0900A906E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED8C22941A26DE0900A906E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ED8C22971A26DE0900A906E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ED8C229D1A26DE0900A906E9 /* YumYumRecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YumYumRecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8C22A21A26DE0900A906E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YumYumRecipesTests.m; sourceTree = "<group>"; };
+		ED8C22AD1A2EBB6700A906E9 /* RecipeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeListViewController.h; sourceTree = "<group>"; };
+		ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListViewController.m; sourceTree = "<group>"; };
+		ED8C22B01A2EBF6700A906E9 /* NewRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecipeViewController.h; sourceTree = "<group>"; };
+		ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecipeViewController.m; sourceTree = "<group>"; };
+		EDF5D7BC1A2ECAAB00D63F5C /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
+		EDF5D7BD1A2ECAAB00D63F5C /* RecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,15 +96,23 @@
 		ED8C22831A26DE0900A906E9 /* YumYumRecipes */ = {
 			isa = PBXGroup;
 			children = (
+				ED8395E91A301E89004EDF2A /* scrambled-eggs.jpg */,
 				ED8C22881A26DE0900A906E9 /* AppDelegate.h */,
 				ED8C22891A26DE0900A906E9 /* AppDelegate.m */,
-				ED8C228E1A26DE0900A906E9 /* ViewController.h */,
-				ED8C228F1A26DE0900A906E9 /* ViewController.m */,
 				ED8C22911A26DE0900A906E9 /* Main.storyboard */,
 				ED8C22941A26DE0900A906E9 /* Images.xcassets */,
 				ED8C22961A26DE0900A906E9 /* LaunchScreen.xib */,
 				ED8C228B1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld */,
 				ED8C22841A26DE0900A906E9 /* Supporting Files */,
+				ED8C22AD1A2EBB6700A906E9 /* RecipeListViewController.h */,
+				ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */,
+				ED8C22B01A2EBF6700A906E9 /* NewRecipeViewController.h */,
+				ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */,
+				EDF5D7BC1A2ECAAB00D63F5C /* RecipeDetailViewController.h */,
+				EDF5D7BD1A2ECAAB00D63F5C /* RecipeDetailViewController.m */,
+				ED8395E01A301660004EDF2A /* RecipeTableCell.xib */,
+				ED8395E21A301773004EDF2A /* RecipeTableCell.h */,
+				ED8395E31A301773004EDF2A /* RecipeTableCell.m */,
 			);
 			path = YumYumRecipes;
 			sourceTree = "<group>";
@@ -202,8 +223,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8395EA1A301E89004EDF2A /* scrambled-eggs.jpg in Resources */,
 				ED8C22931A26DE0900A906E9 /* Main.storyboard in Resources */,
 				ED8C22981A26DE0900A906E9 /* LaunchScreen.xib in Resources */,
+				ED8395E11A301660004EDF2A /* RecipeTableCell.xib in Resources */,
 				ED8C22951A26DE0900A906E9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,10 +245,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */,
+				EDF5D7BE1A2ECAAB00D63F5C /* RecipeDetailViewController.m in Sources */,
 				ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */,
 				ED8C22871A26DE0900A906E9 /* main.m in Sources */,
-				ED8C22901A26DE0900A906E9 /* ViewController.m in Sources */,
 				ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */,
+				ED8395E41A301773004EDF2A /* RecipeTableCell.m in Sources */,
+				ED8C22B21A2EBF6700A906E9 /* NewRecipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +442,7 @@
 				ED8C22A91A26DE0900A906E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED8C22AA1A26DE0900A906E9 /* Build configuration list for PBXNativeTarget "YumYumRecipesTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +451,7 @@
 				ED8C22AC1A26DE0900A906E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
