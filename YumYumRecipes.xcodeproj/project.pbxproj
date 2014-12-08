@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED1E18E81A3541F300A51AD3 /* RecipeRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E18E71A3541F300A51AD3 /* RecipeRootViewController.m */; };
 		ED7512041A3504C50044E6E6 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7512031A3504C50044E6E6 /* Recipe.m */; };
 		ED7512481A3527410044E6E6 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7512471A3527410044E6E6 /* RecipeDetailViewController.m */; };
 		ED8395E11A301660004EDF2A /* RecipeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8395E01A301660004EDF2A /* RecipeTableCell.xib */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED1E18E61A3541F300A51AD3 /* RecipeRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeRootViewController.h; sourceTree = "<group>"; };
+		ED1E18E71A3541F300A51AD3 /* RecipeRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeRootViewController.m; sourceTree = "<group>"; };
 		ED7512021A3504C50044E6E6 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		ED7512031A3504C50044E6E6 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		ED7512461A3527410044E6E6 /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 				ED8395E31A301773004EDF2A /* RecipeTableCell.m */,
 				ED7512021A3504C50044E6E6 /* Recipe.h */,
 				ED7512031A3504C50044E6E6 /* Recipe.m */,
+				ED1E18E61A3541F300A51AD3 /* RecipeRootViewController.h */,
+				ED1E18E71A3541F300A51AD3 /* RecipeRootViewController.m */,
 			);
 			path = YumYumRecipes;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */,
 				ED7512481A3527410044E6E6 /* RecipeDetailViewController.m in Sources */,
 				ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */,
+				ED1E18E81A3541F300A51AD3 /* RecipeRootViewController.m in Sources */,
 				ED7512041A3504C50044E6E6 /* Recipe.m in Sources */,
 				ED8C22871A26DE0900A906E9 /* main.m in Sources */,
 				ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */,
