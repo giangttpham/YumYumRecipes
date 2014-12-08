@@ -10,6 +10,7 @@
 
 @interface NewRecipeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *addIngredientButton;
 @end
 
 @implementation NewRecipeViewController
@@ -26,25 +27,56 @@
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)addIngredientBtnPressed:(id)sender {
+    CGPoint currButtonCenter = self.addIngredientButton.center;
+    
+    CGRect frame = CGRectMake(30,currButtonCenter.y, 200, 30);
+    UITextField *textField = [[UITextField alloc] initWithFrame:frame];
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.textColor = [UIColor blackColor];
+    textField.font = [UIFont systemFontOfSize:17.0];
+    textField.placeholder = @"Suchen";
+    textField.backgroundColor = [UIColor clearColor];
+    textField.autocorrectionType = UITextAutocorrectionTypeYes;
+    textField.keyboardType = UIKeyboardTypeDefault;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.delegate = self;
+
+    [self.view addSubview:textField];
+    currButtonCenter.y += 50;
+    self.addIngredientButton.center = currButtonCenter;
+    CGPoint currTextViewCenter = self.instructionTextView.center;
+    currTextViewCenter.y += 50;
+    self.instructionTextView.center = currTextViewCenter;
+}
 
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Create a new managed object
-    NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
-    [newRecipe setValue:self.nameTextField.text forKey:@"recipeName"];
-    [newRecipe setValue:self.prepTimeTextField.text forKey:@"prepTime"];
-    [newRecipe setValue:self.instructionTextView.text forKey:@"instructions"];
+    //NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
+    
+//    //[self.recipe setValue:self.nameTextField.text forKey:@"name"];
+//    [self.recipe setValue:self.prepTimeTextField.text forKey:@"prepTime"];
+//    [self.recipe setValue:self.instructionTextView.text forKey:@"instructions"];
+//    self.recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
+    self.recipe.name = self.nameTextField.text;
+    self.recipe.prepTime = self.prepTimeTextField.text;
+    self.recipe.instructions = self.instructionTextView.text;
+    self.recipe.ingredients = self.ingredientTextView.text;
     NSData *imageData = UIImagePNGRepresentation(self.recipeImage.image);
     //NSData *imageData = UIImageJPEGRepresentation(self.recipeImage.image, QUALITY);
-    [newRecipe setValue:imageData forKey:@"image"];
+    //[self.recipe setValue:imageData forKey:@"image"];
+    self.recipe.image = imageData;
     NSError *error = nil;
     // Save the object to persistent store
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate newRecipeViewController:self didAddRecipe:self.recipe];
+
 }
 
 - (IBAction)choosePhotoBtnPressed:(id)sender {
@@ -89,7 +121,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -97,6 +129,6 @@
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- */
+ 
 
 @end

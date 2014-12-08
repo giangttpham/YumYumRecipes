@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recipe.h"
 @import CoreData;
 @interface RecipeDetailViewController : UIViewController
 @property NSString *nameText;
 @property NSString *prepTimeText;
 @property NSString *instructionsText;
 @property NSData *recipeImage;
+@property Recipe *recipe;
 @end

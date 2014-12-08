@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED7512041A3504C50044E6E6 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7512031A3504C50044E6E6 /* Recipe.m */; };
+		ED7512481A3527410044E6E6 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7512471A3527410044E6E6 /* RecipeDetailViewController.m */; };
 		ED8395E11A301660004EDF2A /* RecipeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8395E01A301660004EDF2A /* RecipeTableCell.xib */; };
 		ED8395E41A301773004EDF2A /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8395E31A301773004EDF2A /* RecipeTableCell.m */; };
 		ED8395EA1A301E89004EDF2A /* scrambled-eggs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8395E91A301E89004EDF2A /* scrambled-eggs.jpg */; };
@@ -19,7 +21,6 @@
 		ED8C22A41A26DE0900A906E9 /* YumYumRecipesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */; };
 		ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */; };
 		ED8C22B21A2EBF6700A906E9 /* NewRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */; };
-		EDF5D7BE1A2ECAAB00D63F5C /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF5D7BD1A2ECAAB00D63F5C /* RecipeDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED7512021A3504C50044E6E6 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		ED7512031A3504C50044E6E6 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		ED7512461A3527410044E6E6 /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
+		ED7512471A3527410044E6E6 /* RecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
 		ED8395E01A301660004EDF2A /* RecipeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTableCell.xib; sourceTree = "<group>"; };
 		ED8395E21A301773004EDF2A /* RecipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableCell.h; sourceTree = "<group>"; };
 		ED8395E31A301773004EDF2A /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
@@ -53,8 +58,6 @@
 		ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListViewController.m; sourceTree = "<group>"; };
 		ED8C22B01A2EBF6700A906E9 /* NewRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecipeViewController.h; sourceTree = "<group>"; };
 		ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecipeViewController.m; sourceTree = "<group>"; };
-		EDF5D7BC1A2ECAAB00D63F5C /* RecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
-		EDF5D7BD1A2ECAAB00D63F5C /* RecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +111,13 @@
 				ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */,
 				ED8C22B01A2EBF6700A906E9 /* NewRecipeViewController.h */,
 				ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */,
-				EDF5D7BC1A2ECAAB00D63F5C /* RecipeDetailViewController.h */,
-				EDF5D7BD1A2ECAAB00D63F5C /* RecipeDetailViewController.m */,
+				ED7512461A3527410044E6E6 /* RecipeDetailViewController.h */,
+				ED7512471A3527410044E6E6 /* RecipeDetailViewController.m */,
 				ED8395E01A301660004EDF2A /* RecipeTableCell.xib */,
 				ED8395E21A301773004EDF2A /* RecipeTableCell.h */,
 				ED8395E31A301773004EDF2A /* RecipeTableCell.m */,
+				ED7512021A3504C50044E6E6 /* Recipe.h */,
+				ED7512031A3504C50044E6E6 /* Recipe.m */,
 			);
 			path = YumYumRecipes;
 			sourceTree = "<group>";
@@ -246,8 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */,
-				EDF5D7BE1A2ECAAB00D63F5C /* RecipeDetailViewController.m in Sources */,
+				ED7512481A3527410044E6E6 /* RecipeDetailViewController.m in Sources */,
 				ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */,
+				ED7512041A3504C50044E6E6 /* Recipe.m in Sources */,
 				ED8C22871A26DE0900A906E9 /* main.m in Sources */,
 				ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */,
 				ED8395E41A301773004EDF2A /* RecipeTableCell.m in Sources */,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2C0BF02F-30CA-49A6-B503-12F2E3F977B0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YumYumRecipes</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BF297730079BD2A92D073C711750095953FED41B</key>
+		<string>https://github.com/giangttpham/YumYumRecipes.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YumYumRecipes.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BF297730079BD2A92D073C711750095953FED41B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/giangttpham/YumYumRecipes.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BF297730079BD2A92D073C711750095953FED41B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BF297730079BD2A92D073C711750095953FED41B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YumYumRecipes</string>
+		</dict>
+	</array>
+</dict>
+</plist>

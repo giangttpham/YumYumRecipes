@@ -8,9 +8,11 @@
 
 #import "RecipeListViewController.h"
 #import "RecipeDetailViewController.h"
+#import "NewRecipeViewController.h"
+#import "Recipe.h"
 @interface RecipeListViewController ()
 @property (strong) NSMutableArray *recipes;
-
+@property NSArray *searchResults;
 @end
 
 @implementation RecipeListViewController
@@ -23,6 +25,8 @@
     }
     return context;
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -53,7 +57,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.recipes.count;
+    if (self.tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+        
+    } else {
+        return self.recipes.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,47 +71,51 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", [recipe valueForKey:@"recipeName"], [recipe valueForKey:@"prepTime"]]];
+    //NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
+    Recipe *recipe = nil;
+    if (self.tableView == self.searchDisplayController.searchResultsTableView) {
+        recipe = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        recipe = [self.recipes objectAtIndex:indexPath.row];
+    }
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", [recipe valueForKey:@"name"], [recipe valueForKey:@"prepTime"]]];
     [cell.detailTextLabel setText:[recipe valueForKey:@"instructions"]];
-//    cell.imageView.image = [UIImage imageNamed:@"scrambled-eggs.jpg"];
+    //    cell.imageView.image = [UIImage imageNamed:@"scrambled-eggs.jpg"];
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+- (void)newRecipeViewController:(NewRecipeViewController *)newRecipeViewController didAddRecipe:(Recipe *)recipe {
+    
+    if (recipe) {
+        // show the recipe in the RecipeDetailViewController
+        [self performSegueWithIdentifier:@"RecipeDetailSegue" sender:recipe];
+    }
+    
+    // dismiss the RecipeAddViewController
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
+#pragma mark - UISearchDisplayController delegate methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+    shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
 
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF contains[cd] %@",
+                                    searchText];
+    
+    self.searchResults = [self.recipes filteredArrayUsingPredicate:resultPredicate];
+}
 
 #pragma mark - Navigation
 
@@ -111,14 +124,31 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"RecipeDetailSegue"]) {
+        
         RecipeDetailViewController *detailVC = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
+        Recipe *currRecipe = nil;
+        if ([sender isKindOfClass:[Recipe class]])
+            currRecipe = sender;
+        else {
+            
+            [self.recipes objectAtIndex:indexPath.row];
+            //        NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
+            //        detailVC.nameText = [recipe valueForKey:@"name"];
+            //        detailVC.prepTimeText = [recipe valueForKey:@"prepTime"];
+            //        detailVC.instructionsText = [recipe valueForKey:@"instructions"];
+            //        detailVC.recipeImage = [recipe valueForKey:@"image"];
+            currRecipe = [self.recipes objectAtIndex:indexPath.row];
+        }
+        detailVC.recipe = currRecipe;
         
-        detailVC.nameText = [recipe valueForKey:@"recipeName"];
-        detailVC.prepTimeText = [recipe valueForKey:@"prepTime"];
-        detailVC.instructionsText = [recipe valueForKey:@"instructions"];
-        detailVC.recipeImage = [recipe valueForKey:@"image"];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"NewRecipeSegue"]) {
+        Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:[self managedObjectContext]];
+        NewRecipeViewController* newVC = segue.destinationViewController;
+        newVC.recipe = newRecipe;
+        newVC.delegate = self;
     }
 }
 

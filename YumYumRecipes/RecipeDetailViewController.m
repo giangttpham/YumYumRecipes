@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *prepTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextView *ingredientTextView;
 
 @property (weak, nonatomic) IBOutlet UITextView *instructionTextView;
 @end
@@ -29,10 +30,15 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.nameLabel.text = self.nameText;
-    self.prepTimeLabel.text = self.prepTimeText;
-    self.instructionTextView.text = self.instructionsText;
-    self.imageView.image = [UIImage imageWithData:self.recipeImage];
+//    self.nameLabel.text = self.nameText;
+//    self.prepTimeLabel.text = self.prepTimeText;
+//    self.instructionTextView.text = self.instructionsText;
+//    self.imageView.image = [UIImage imageWithData:self.recipeImage];
+    self.nameLabel.text = self.recipe.name;
+    self.prepTimeLabel.text = self.recipe.prepTime;
+    self.ingredientTextView.text = self.recipe.ingredients;
+    self.instructionTextView.text = self.recipe.instructions;
+    self.imageView.image = [UIImage imageWithData:self.recipe.image];
     // Do any additional setup after loading the view.
 }
 
