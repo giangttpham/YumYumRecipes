@@ -23,7 +23,6 @@
     if ([delegate performSelector:@selector(managedObjectContext)]) {
         context = [delegate managedObjectContext];
     }
-
     return context;
 }
 
@@ -31,6 +30,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
