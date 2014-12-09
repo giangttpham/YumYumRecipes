@@ -9,10 +9,14 @@
 #import "RecipeListViewController.h"
 #import "RecipeDetailViewController.h"
 #import "NewRecipeViewController.h"
+#import "RecipeTableCell.h"
 #import "Recipe.h"
 @interface RecipeListViewController ()
 @property (strong) NSMutableArray *recipes;
 @property NSArray *searchResults;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *prepTime;
 @end
 
 @implementation RecipeListViewController
@@ -26,11 +30,10 @@
     return context;
 }
 
-
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -39,7 +42,11 @@
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
     self.recipes = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//    self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial-BoldMT" size:20.0],NSFontAttributeName, nil];
     
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
 }
 
@@ -57,30 +64,37 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (self.tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.searchResults count];
-        
-    } else {
-        return self.recipes.count;
-    }
+    
+    return self.recipes.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    RecipeTableCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    cell.textLabel.textColor = [UIColor whiteColor];
+//    cell.detailTextLabel.textColor = [UIColor whiteColor];
     // Configure the cell...
     //NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
     Recipe *recipe = nil;
-    if (self.tableView == self.searchDisplayController.searchResultsTableView) {
-        recipe = [self.searchResults objectAtIndex:indexPath.row];
-    } else {
-        recipe = [self.recipes objectAtIndex:indexPath.row];
-    }
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", [recipe valueForKey:@"name"], [recipe valueForKey:@"prepTime"]]];
-    [cell.detailTextLabel setText:[recipe valueForKey:@"instructions"]];
-    //    cell.imageView.image = [UIImage imageNamed:@"scrambled-eggs.jpg"];
+    
+    recipe = [self.recipes objectAtIndex:indexPath.row];
+    cell.nameLabel.text = [recipe valueForKey:@"name"];
+    cell.prepTimeLabel.text = [recipe valueForKey:@"prepTime"];
+//    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", [recipe valueForKey:@"name"], [recipe valueForKey:@"prepTime"]]];
+    
+    UIImage *recipeImage = [UIImage imageWithData:[recipe valueForKey:@"image"]];
+    CGRect rect = CGRectMake(0,0,80,80);
+    UIGraphicsBeginImageContext( rect.size );
+    [recipeImage drawInRect:rect];
+    recipeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    cell.imageView.image = recipeImage;
+//    [cell.detailTextLabel setText:[recipe valueForKey:@"instructions"]];
+    
     return cell;
 }
 
@@ -96,17 +110,6 @@
 }
 
 
-#pragma mark - UISearchDisplayController delegate methods
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller
-    shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                      objectAtIndex:[self.searchDisplayController.searchBar
-                                                     selectedScopeButtonIndex]]];
-    
-    return YES;
-}
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {

@@ -39,6 +39,8 @@
     self.ingredientTextView.text = self.recipe.ingredients;
     self.instructionTextView.text = self.recipe.instructions;
     self.imageView.image = [UIImage imageWithData:self.recipe.image];
+    self.ingredientTextView.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
     // Do any additional setup after loading the view.
 }
 
@@ -56,5 +58,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end

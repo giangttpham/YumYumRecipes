@@ -11,6 +11,10 @@
 @interface NewRecipeViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *addIngredientButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property IBOutlet UITextView *activeField;
+
+
 @end
 
 @implementation NewRecipeViewController
@@ -25,8 +29,11 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.recipe.managedObjectContext deleteObject:self.recipe];
+    [self.delegate newRecipeViewController:self didAddRecipe:nil];
 }
+/*
 - (IBAction)addIngredientBtnPressed:(id)sender {
     CGPoint currButtonCenter = self.addIngredientButton.center;
     
@@ -49,7 +56,7 @@
     currTextViewCenter.y += 50;
     self.instructionTextView.center = currTextViewCenter;
 }
-
+*/
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -64,7 +71,15 @@
     self.recipe.prepTime = self.prepTimeTextField.text;
     self.recipe.instructions = self.instructionTextView.text;
     self.recipe.ingredients = self.ingredientTextView.text;
-    NSData *imageData = UIImagePNGRepresentation(self.recipeImage.image);
+    
+    CGRect rect = CGRectMake(0,0,100,100);
+    UIGraphicsBeginImageContext( rect.size );
+    [self.recipeImage.image drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    NSData *imageData = UIImagePNGRepresentation(newImage);
+    //NSData *imageData = UIImagePNGRepresentation(self.recipeImage.image);
     //NSData *imageData = UIImageJPEGRepresentation(self.recipeImage.image, QUALITY);
     //[self.recipe setValue:imageData forKey:@"image"];
     self.recipe.image = imageData;
@@ -108,12 +123,24 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
+
+
+}
+
+- (void) textViewDidBeginEditing:(UITextView *) textView {
+    [textView setText:@""];
+    self.activeField = textView;
+    textView.textColor = [UIColor blackColor];
+    [self animateTextView: YES];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
+    self.ingredientTextView.delegate = self;
+    self.instructionTextView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,6 +156,31 @@
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- 
+
+
+
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [self animateTextView:NO];
+}
+
+- (void) animateTextView:(BOOL) up
+{
+    const int movementDistance = 150; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    int movement= movement = (up ? -movementDistance : movementDistance);
+    NSLog(@"%d",movement);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+- (IBAction)doneEditingButtonPressed:(id)sender {
+    [self.instructionTextView resignFirstResponder];
+    [self.ingredientTextView resignFirstResponder];
+}
 
 @end
