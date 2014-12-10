@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *addIngredientButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property IBOutlet UITextView *activeField;
+@property UIGestureRecognizer *tapper;
+
 
 
 @end
@@ -33,30 +35,8 @@
     [self.recipe.managedObjectContext deleteObject:self.recipe];
     [self.delegate newRecipeViewController:self didAddRecipe:nil];
 }
-/*
-- (IBAction)addIngredientBtnPressed:(id)sender {
-    CGPoint currButtonCenter = self.addIngredientButton.center;
-    
-    CGRect frame = CGRectMake(30,currButtonCenter.y, 200, 30);
-    UITextField *textField = [[UITextField alloc] initWithFrame:frame];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.textColor = [UIColor blackColor];
-    textField.font = [UIFont systemFontOfSize:17.0];
-    textField.placeholder = @"Suchen";
-    textField.backgroundColor = [UIColor clearColor];
-    textField.autocorrectionType = UITextAutocorrectionTypeYes;
-    textField.keyboardType = UIKeyboardTypeDefault;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField.delegate = self;
 
-    [self.view addSubview:textField];
-    currButtonCenter.y += 50;
-    self.addIngredientButton.center = currButtonCenter;
-    CGPoint currTextViewCenter = self.instructionTextView.center;
-    currTextViewCenter.y += 50;
-    self.instructionTextView.center = currTextViewCenter;
-}
-*/
+
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -71,7 +51,7 @@
     self.recipe.prepTime = self.prepTimeTextField.text;
     self.recipe.instructions = self.instructionTextView.text;
     self.recipe.ingredients = self.ingredientTextView.text;
-    
+    self.recipe.note = @"Note:";
     CGRect rect = CGRectMake(0,0,100,100);
     UIGraphicsBeginImageContext( rect.size );
     [self.recipeImage.image drawInRect:rect];
@@ -141,6 +121,10 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
     self.ingredientTextView.delegate = self;
     self.instructionTextView.delegate = self;
+    self.tapper = [[UITapGestureRecognizer alloc]
+                   initWithTarget:self action:@selector(handleSingleTap:)];
+    self.tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:self.tapper];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -159,7 +143,10 @@
 
 
 
-
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
+}
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     [self animateTextView:NO];

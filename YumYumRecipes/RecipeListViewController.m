@@ -41,12 +41,17 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
+    
+    NSSortDescriptor *titleSorter= [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:titleSorter, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
     self.recipes = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 //    self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial-BoldMT" size:20.0],NSFontAttributeName, nil];
     
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  
     [self.tableView reloadData];
 }
 
@@ -119,7 +124,32 @@
     
     self.searchResults = [self.recipes filteredArrayUsingPredicate:resultPredicate];
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete object from database
+        [context deleteObject:[self.recipes objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove device from table view
+        [self.recipes removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -154,6 +184,9 @@
         newVC.delegate = self;
     }
 }
+
+
+
 
 
 @end

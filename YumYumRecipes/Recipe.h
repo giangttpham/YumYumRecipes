@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString * prepTime;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * ingredients;
+@property (nonatomic, retain) NSString * note;
 
 @end

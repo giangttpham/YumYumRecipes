@@ -16,5 +16,5 @@
 @dynamic prepTime;
 @dynamic name;
 @dynamic ingredients;
-
+@dynamic note;
 @end

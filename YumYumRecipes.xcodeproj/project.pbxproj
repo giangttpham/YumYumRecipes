@@ -23,6 +23,11 @@
 		ED8C22A41A26DE0900A906E9 /* YumYumRecipesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22A31A26DE0900A906E9 /* YumYumRecipesTests.m */; };
 		ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */; };
 		ED8C22B21A2EBF6700A906E9 /* NewRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */; };
+		EDD3804F1A37DCFB004B7627 /* xylophone-alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EDD3804E1A37DCFB004B7627 /* xylophone-alarm.mp3 */; };
+		EDD380531A37F47E004B7627 /* white-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDD380521A37F47E004B7627 /* white-background.jpg */; };
+		EDD3808D1A3811E7004B7627 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD3808C1A3811E7004B7627 /* TimerViewController.m */; };
+		EDD3809B1A381B92004B7627 /* recipeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD3809A1A381B92004B7627 /* recipeIcon.png */; };
+		EDD3809D1A381D21004B7627 /* timerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD3809C1A381D21004B7627 /* timerIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,12 @@
 		ED8C22AE1A2EBB6700A906E9 /* RecipeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListViewController.m; sourceTree = "<group>"; };
 		ED8C22B01A2EBF6700A906E9 /* NewRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRecipeViewController.h; sourceTree = "<group>"; };
 		ED8C22B11A2EBF6700A906E9 /* NewRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRecipeViewController.m; sourceTree = "<group>"; };
+		EDD3804E1A37DCFB004B7627 /* xylophone-alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "xylophone-alarm.mp3"; sourceTree = SOURCE_ROOT; };
+		EDD380521A37F47E004B7627 /* white-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "white-background.jpg"; sourceTree = SOURCE_ROOT; };
+		EDD3808B1A3811E7004B7627 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		EDD3808C1A3811E7004B7627 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		EDD3809A1A381B92004B7627 /* recipeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipeIcon.png; sourceTree = SOURCE_ROOT; };
+		EDD3809C1A381D21004B7627 /* timerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timerIcon.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +114,10 @@
 		ED8C22831A26DE0900A906E9 /* YumYumRecipes */ = {
 			isa = PBXGroup;
 			children = (
+				EDD3809C1A381D21004B7627 /* timerIcon.png */,
+				EDD3809A1A381B92004B7627 /* recipeIcon.png */,
+				EDD380521A37F47E004B7627 /* white-background.jpg */,
+				EDD3804E1A37DCFB004B7627 /* xylophone-alarm.mp3 */,
 				ED5B02C41A368A3E00CE7383 /* RedBackground.jpg */,
 				ED5B02C21A36898200CE7383 /* Green Background.jpg */,
 				ED8395E91A301E89004EDF2A /* scrambled-eggs.jpg */,
@@ -124,6 +139,8 @@
 				ED8395E31A301773004EDF2A /* RecipeTableCell.m */,
 				ED7512021A3504C50044E6E6 /* Recipe.h */,
 				ED7512031A3504C50044E6E6 /* Recipe.m */,
+				EDD3808B1A3811E7004B7627 /* TimerViewController.h */,
+				EDD3808C1A3811E7004B7627 /* TimerViewController.m */,
 			);
 			path = YumYumRecipes;
 			sourceTree = "<group>";
@@ -235,7 +252,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5B02C51A368A3E00CE7383 /* RedBackground.jpg in Resources */,
+				EDD3809B1A381B92004B7627 /* recipeIcon.png in Resources */,
+				EDD3804F1A37DCFB004B7627 /* xylophone-alarm.mp3 in Resources */,
 				ED8395EA1A301E89004EDF2A /* scrambled-eggs.jpg in Resources */,
+				EDD380531A37F47E004B7627 /* white-background.jpg in Resources */,
+				EDD3809D1A381D21004B7627 /* timerIcon.png in Resources */,
 				ED8C22931A26DE0900A906E9 /* Main.storyboard in Resources */,
 				ED8C22981A26DE0900A906E9 /* LaunchScreen.xib in Resources */,
 				ED8395E11A301660004EDF2A /* RecipeTableCell.xib in Resources */,
@@ -261,6 +282,7 @@
 				ED8C22AF1A2EBB6700A906E9 /* RecipeListViewController.m in Sources */,
 				ED7512481A3527410044E6E6 /* RecipeDetailViewController.m in Sources */,
 				ED8C228A1A26DE0900A906E9 /* AppDelegate.m in Sources */,
+				EDD3808D1A3811E7004B7627 /* TimerViewController.m in Sources */,
 				ED7512041A3504C50044E6E6 /* Recipe.m in Sources */,
 				ED8C22871A26DE0900A906E9 /* main.m in Sources */,
 				ED8C228D1A26DE0900A906E9 /* YumYumRecipes.xcdatamodeld in Sources */,
