@@ -19,7 +19,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kaz-uO-eYE">
-                                            <rect key="frame" x="3" y="-1" width="80" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="06o-N6-yuq">
@@ -346,11 +346,11 @@
             </objects>
             <point key="canvasLocation" x="1270" y="-78"/>
         </scene>
-        <!--Recipes Box-->
+        <!--Recipe Box-->
         <scene sceneID="HCe-Rd-nBd">
             <objects>
                 <navigationController id="irJ-N6-SnN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes Box" image="recipeIcon.png" id="2bd-jM-NUf"/>
+                    <tabBarItem key="tabBarItem" title="Recipe Box" image="recipeIcon.png" id="2bd-jM-NUf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sog-St-mw9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

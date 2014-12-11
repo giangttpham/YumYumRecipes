@@ -17,7 +17,7 @@
 @property NSTimer *countdownTimer;
 @property int minuteCounter;
 @property AVAudioPlayer *alarmPlayer;
-
+@property UIGestureRecognizer *tapper;
 @end
 
 @implementation TimerViewController
@@ -28,7 +28,10 @@
     NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"xylophone-alarm" withExtension:@"mp3"];
     self.alarmPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"green-background.jpg"]  ];
-    
+    self.tapper = [[UITapGestureRecognizer alloc]
+                   initWithTarget:self action:@selector(handleSingleTap:)];
+    self.tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:self.tapper];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,4 +107,11 @@
     self.hourTextfield.text = @"";
     self.minuteTextfield.text = @"";
 }
+
+//turn off keyboard if tap outside of text view
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
+}
+
 @end

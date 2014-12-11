@@ -1,0 +1,4 @@
+APP FUNCTIONALITIES:
+- This app allows user to manually input new recipe and save it. They can go back to review a recipe or add some personal notes to it. The user also has timer option that can be used when cooking. 
+- This app will run on iPhones, but since AutoLayout was turned off, iPhone6 would give the best UI.
+
