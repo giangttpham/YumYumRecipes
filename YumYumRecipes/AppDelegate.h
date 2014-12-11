@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  YumYumRecipes
 //
-//  Created by Tra` Beo' on 11/26/14.
+//  Created by Giang Pham on 11/26/14.
 //  Copyright (c) 2014 Giang Pham. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  ViewController.m
 //  CountdownTimer
 //
-//  Created by Tra` Beo' on 12/9/14.
+//  Created by Giang Pham on 12/9/14.
 //  Copyright (c) 2014 Giang Pham. All rights reserved.
 //
 
@@ -12,10 +12,10 @@
 @interface TimerViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
-@property NSTimer *countdownTimer;
-@property int minuteCounter;
 @property (weak, nonatomic) IBOutlet UITextField *hourTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *minuteTextfield;
+@property NSTimer *countdownTimer;
+@property int minuteCounter;
 @property AVAudioPlayer *alarmPlayer;
 
 @end
@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"xylophone-alarm" withExtension:@"mp3"];
     self.alarmPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"green-background.jpg"]  ];
     
 }
 
@@ -38,10 +38,12 @@
 
 - (void)setTimer {
     self.minuteCounter = [self.hourTextfield.text intValue] * 60 + [self.minuteTextfield.text intValue];
+    //set timer on interval of 1minute
     self.countdownTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(timerRun) userInfo:nil repeats:YES];
 }
+
 - (IBAction)startTimmerBtnPressed:(id)sender {
-    
+    //get time from user input
     if ([self.hourTextfield.text isEqualToString: @""])
         self.hourTextfield.text = @"0";
     
@@ -55,6 +57,7 @@
     
     UIAlertView *emptyTimerAlert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Please put in time interval" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
+    //if no time was entered, show alert or else, start timer
     if ([self.hourTextfield.text  isEqualToString: @"0"] && [self.minuteTextfield.text isEqualToString:@"0"])
         [emptyTimerAlert show];
     else
@@ -63,6 +66,7 @@
 }
 
 - (void)timerRun {
+    //calculate time left
     self.minuteCounter -= 1;
     int hours = self.minuteCounter/60;
     int minutes = self.minuteCounter - (hours * 60);
@@ -72,8 +76,10 @@
     else
         timerOutput = [NSString stringWithFormat:@"%d:%d",hours,minutes];
     
+    //display time
     self.countdownLabel.text = timerOutput;
     
+    //alert user when time is over and play sound
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Timer Done"
                           message:@"Check your food!"
@@ -86,11 +92,10 @@
         self.countdownTimer = nil;
         [alert show];
         [self.alarmPlayer play];
-        
-        
     }
 }
 
+//if user clisk ok on alert, turn off sound
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0){

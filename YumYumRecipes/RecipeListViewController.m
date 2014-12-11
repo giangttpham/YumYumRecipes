@@ -2,13 +2,13 @@
 //  RecipeListViewController.m
 //  YumYumRecipes
 //
-//  Created by Tra` Beo' on 12/2/14.
+//  Created by Giang Pham on 12/2/14.
 //  Copyright (c) 2014 Giang Pham. All rights reserved.
 //
 
 #import "RecipeListViewController.h"
 #import "RecipeDetailViewController.h"
-#import "NewRecipeViewController.h"
+#import "RecipeAddViewController.h"
 #import "RecipeTableCell.h"
 #import "Recipe.h"
 @interface RecipeListViewController ()
@@ -32,26 +32,21 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"green-background.jpg"]  ];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //set managed object context for Core Data and fetch data
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
-    
     NSSortDescriptor *titleSorter= [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:titleSorter, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     self.recipes = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-//    self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial-BoldMT" size:20.0],NSFontAttributeName, nil];
     
+    //set font for Navigation Bar title
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial-BoldMT" size:20.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-  
+    
     [self.tableView reloadData];
 }
 
@@ -69,41 +64,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    
-    return self.recipes.count;
-    
+    return self.recipes.count;    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //create a cell object
     static NSString *CellIdentifier = @"Cell";
     RecipeTableCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    cell.textLabel.textColor = [UIColor whiteColor];
-//    cell.detailTextLabel.textColor = [UIColor whiteColor];
-    // Configure the cell...
-    //NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
     Recipe *recipe = nil;
-    
+    //get selected recipe and load data
     recipe = [self.recipes objectAtIndex:indexPath.row];
     cell.nameLabel.text = [recipe valueForKey:@"name"];
     cell.prepTimeLabel.text = [recipe valueForKey:@"prepTime"];
-//    [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", [recipe valueForKey:@"name"], [recipe valueForKey:@"prepTime"]]];
-    
+    //format the thumbnail image
     UIImage *recipeImage = [UIImage imageWithData:[recipe valueForKey:@"image"]];
     CGRect rect = CGRectMake(0,0,80,80);
     UIGraphicsBeginImageContext( rect.size );
     [recipeImage drawInRect:rect];
     recipeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
     cell.imageView.image = recipeImage;
-//    [cell.detailTextLabel setText:[recipe valueForKey:@"instructions"]];
     
     return cell;
 }
 
-- (void)newRecipeViewController:(NewRecipeViewController *)newRecipeViewController didAddRecipe:(Recipe *)recipe {
+- (void)newRecipeViewController:(RecipeAddViewController *)newRecipeViewController didAddRecipe:(Recipe *)recipe {
     
     if (recipe) {
         // show the recipe in the RecipeDetailViewController
@@ -115,15 +101,6 @@
 }
 
 
-
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    NSPredicate *resultPredicate = [NSPredicate
-                                    predicateWithFormat:@"SELF contains[cd] %@",
-                                    searchText];
-    
-    self.searchResults = [self.recipes filteredArrayUsingPredicate:resultPredicate];
-}
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
@@ -145,7 +122,7 @@
             return;
         }
         
-        // Remove device from table view
+        // Remove recipe from table view
         [self.recipes removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -154,39 +131,28 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
     if ([[segue identifier] isEqualToString:@"RecipeDetailSegue"]) {
-        
+        //if recipe is selected, open RecipeDetailViewController and load data
         RecipeDetailViewController *detailVC = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Recipe *currRecipe = nil;
         if ([sender isKindOfClass:[Recipe class]])
             currRecipe = sender;
         else {
-            
             [self.recipes objectAtIndex:indexPath.row];
-            //        NSManagedObject *recipe = [self.recipes objectAtIndex:indexPath.row];
-            //        detailVC.nameText = [recipe valueForKey:@"name"];
-            //        detailVC.prepTimeText = [recipe valueForKey:@"prepTime"];
-            //        detailVC.instructionsText = [recipe valueForKey:@"instructions"];
-            //        detailVC.recipeImage = [recipe valueForKey:@"image"];
             currRecipe = [self.recipes objectAtIndex:indexPath.row];
         }
         detailVC.recipe = currRecipe;
-        
     }
     
     if ([[segue identifier] isEqualToString:@"NewRecipeSegue"]) {
+        //if add button was selected, open RecipeAddViewController
         Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:[self managedObjectContext]];
-        NewRecipeViewController* newVC = segue.destinationViewController;
+        RecipeAddViewController* newVC = segue.destinationViewController;
         newVC.recipe = newRecipe;
         newVC.delegate = self;
     }
 }
-
-
-
-
 
 @end

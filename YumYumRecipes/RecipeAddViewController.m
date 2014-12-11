@@ -2,24 +2,38 @@
 //  RecipeDetailViewController.m
 //  YumYumRecipes
 //
-//  Created by Tra` Beo' on 12/2/14.
+//  Created by Giang Pham on 12/2/14.
 //  Copyright (c) 2014 Giang Pham. All rights reserved.
 //
 
-#import "NewRecipeViewController.h"
+#import "RecipeAddViewController.h"
 
-@interface NewRecipeViewController ()
-
-@property (weak, nonatomic) IBOutlet UIButton *addIngredientButton;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property IBOutlet UITextView *activeField;
+@interface RecipeAddViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *prepTimeTextField;
+@property (weak, nonatomic) IBOutlet UITextView *instructionTextView;
+@property (weak, nonatomic) IBOutlet UITextView *ingredientTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *recipeImage;
 @property UIGestureRecognizer *tapper;
-
-
-
 @end
 
-@implementation NewRecipeViewController
+@implementation RecipeAddViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"green-background.jpg"]  ];
+    self.ingredientTextView.delegate = self;
+    self.instructionTextView.delegate = self;
+    self.tapper = [[UITapGestureRecognizer alloc]
+                   initWithTarget:self action:@selector(handleSingleTap:)];
+    self.tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:self.tapper];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
@@ -31,22 +45,14 @@
 }
 
 - (IBAction)cancel:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
     [self.recipe.managedObjectContext deleteObject:self.recipe];
     [self.delegate newRecipeViewController:self didAddRecipe:nil];
 }
 
-
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    // Create a new managed object
-    //NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
-    
-//    //[self.recipe setValue:self.nameTextField.text forKey:@"name"];
-//    [self.recipe setValue:self.prepTimeTextField.text forKey:@"prepTime"];
-//    [self.recipe setValue:self.instructionTextView.text forKey:@"instructions"];
-//    self.recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
+    //save data to the new recipe
     self.recipe.name = self.nameTextField.text;
     self.recipe.prepTime = self.prepTimeTextField.text;
     self.recipe.instructions = self.instructionTextView.text;
@@ -57,23 +63,21 @@
     [self.recipeImage.image drawInRect:rect];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
     NSData *imageData = UIImagePNGRepresentation(newImage);
-    //NSData *imageData = UIImagePNGRepresentation(self.recipeImage.image);
-    //NSData *imageData = UIImageJPEGRepresentation(self.recipeImage.image, QUALITY);
-    //[self.recipe setValue:imageData forKey:@"image"];
     self.recipe.image = imageData;
     NSError *error = nil;
+    
     // Save the object to persistent store
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-    
-    //[self dismissViewControllerAnimated:YES completion:nil];
+
+    //delegate to RecipeListViewController to open the new recipe detail
     [self.delegate newRecipeViewController:self didAddRecipe:self.recipe];
 
 }
 
+//Button actions to add new photo
 - (IBAction)choosePhotoBtnPressed:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -103,35 +107,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
-
-
 }
-
-- (void) textViewDidBeginEditing:(UITextView *) textView {
-    [textView setText:@""];
-    self.activeField = textView;
-    textView.textColor = [UIColor blackColor];
-    [self animateTextView: YES];
-
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Green Background.jpg"]  ];
-    self.ingredientTextView.delegate = self;
-    self.instructionTextView.delegate = self;
-    self.tapper = [[UITapGestureRecognizer alloc]
-                   initWithTarget:self action:@selector(handleSingleTap:)];
-    self.tapper.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:self.tapper];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
  #pragma mark - Navigation
  
@@ -142,10 +118,18 @@
  }
 
 
-
+//turned off keyboard if click outside text views
 - (void)handleSingleTap:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
+}
+
+// move screen up to show text view
+- (void) textViewDidBeginEditing:(UITextView *) textView {
+    [textView setText:@""];
+    textView.textColor = [UIColor blackColor];
+    [self animateTextView: YES];
+    
 }
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
@@ -154,8 +138,8 @@
 
 - (void) animateTextView:(BOOL) up
 {
-    const int movementDistance = 150; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
+    const int movementDistance = 150;
+    const float movementDuration = 0.3f;
     int movement= movement = (up ? -movementDistance : movementDistance);
     NSLog(@"%d",movement);
     
@@ -165,9 +149,6 @@
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
 }
-- (IBAction)doneEditingButtonPressed:(id)sender {
-    [self.instructionTextView resignFirstResponder];
-    [self.ingredientTextView resignFirstResponder];
-}
+
 
 @end
